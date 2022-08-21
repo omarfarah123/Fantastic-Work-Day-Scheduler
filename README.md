@@ -8,3 +8,6 @@ This application was created using the moment.js library
 Here is a demo of the application in action
 
 [Work Day Scheduler (1).webm](https://user-images.githubusercontent.com/76454677/185814240-e9d1f186-3ad2-4115-a89e-fef35abf333c.webm)
+
+
+Here is a link to the application deployed : https://omarfarah123.github.io/Fantastic-Work-Day-Scheduler/
