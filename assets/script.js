@@ -14,9 +14,8 @@ var textArea = document.querySelector('textarea');
 currentDay.innerHTML = moment().format('dddd, MMMM Do');
 
 
-
 //function for dtermining the time block status
-function bang(){
+function timeStatus(){
     var time = new Date();
     var currentHour;
     if(time.getHours() > 12){
@@ -29,9 +28,7 @@ function bang(){
     //for loop for looping thorugh the arrays of timeblocks and then assigning the proper color
     for(let i = 0; i < timeBlocks.length; i++){
         var hour = timeBlocks[i].children[0].innerHTML;
-        console.log(timeBlock1.id)
         var alignmentNum = timeBlocks[i].id.slice(-1)
-        console.log(`${alignmentNum}`)
         var blockPeriod = hour.slice(-2);
         var currentPeriod = currentHour.slice(-2)
         var blockNum = parseInt(hour.slice(0, 2))
@@ -54,18 +51,17 @@ function bang(){
 }
 //function which executes the status assignment for the time blocks
 
-
-
-function pow(){
+//This function saves the tasks that were entered indise the applicaion
+function taskStorage(){
     for(let i = 1; i <= 9; i++){
         document.getElementById(`saveBtn${i}`).addEventListener("click", function () {
-            alert("LOL")
             var task = document.getElementById(`textBox${i}`).value;
             localStorage.setItem(`task${i}`, task);
-            alert("Saved Task List");
           }, false);
     }
 }
+
+//This function keeps the items inside the time blocks when the page is reloaded
 function reloader(){
     document.querySelector("body").onload = function(){
         for(let i = 1; i <= 9; i++){
@@ -75,9 +71,9 @@ function reloader(){
 }
 
 
-bang()
-pow()
-reloader()
+timeStatus();
+taskStorage();
+reloader();
 
 
 
