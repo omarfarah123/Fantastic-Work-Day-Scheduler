@@ -13,10 +13,11 @@ var textArea = document.querySelector('textarea');
 //Assigning the current time below the title on the header
 currentDay.innerHTML = moment().format('dddd, MMMM Do');
 
-var time = new Date();
+
 
 //function for dtermining the time block status
 function bang(){
+    var time = new Date();
     var currentHour;
     if(time.getHours() > 12){
        currentHour = time.getHours() % 12 + "PM"
@@ -55,10 +56,28 @@ function bang(){
 
 
 
+function pow(){
+    for(let i = 1; i <= 9; i++){
+        document.getElementById(`saveBtn${i}`).addEventListener("click", function () {
+            alert("LOL")
+            var task = document.getElementById(`textBox${i}`).value;
+            localStorage.setItem(`task${i}`, task);
+            alert("Saved Task List");
+          }, false);
+    }
+}
+function reloader(){
+    document.querySelector("body").onload = function(){
+        for(let i = 1; i <= 9; i++){
+            document.getElementById(`textBox${i}`).value = localStorage.getItem(`task${i}`)
+        }
+    }
+}
+
 
 bang()
-
-
+pow()
+reloader()
 
 
 
